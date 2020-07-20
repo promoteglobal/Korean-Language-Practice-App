@@ -7,8 +7,6 @@ const 이다ConsonantInformal = ["이야"];
 const 이다ConsonantFormal = ["이에요"];
 const 이다VowelInformal = ["야"];
 const 이다VowelFormal = ["예요"];
-const informal이다OrignalArray = [...이다ConsonantInformal, ...이다VowelInformal];
-const formal이다OrignalArray = [...이다ConsonantFormal, ...이다VowelFormal];
 const Consonant이다OrignalArray = [...이다ConsonantInformal, ...이다ConsonantFormal];
 const Vowel이다OrignalArray = [...이다VowelInformal, ...이다VowelFormal]; 
 //----------------------------------------------------I---------------------------------------------------------
@@ -22,13 +20,8 @@ const subjectMarkerConsonant = ["은"];
 
 //-------------------------------------------------------chap1-------------------------------------------------------------------------
 //---------------------------------------------------nouns------------------------------------------------------
-const nounVowelOrignalArray = ["남자", "여자", "의사"];
-const nounConsonantOrignalArray = ["학생", "사람", "선생님"];
-const allNounsOriginalArrays = [...nounVowelOrignalArray, ...nounConsonantOrignalArray];
-// const allNounsOriginalArraystest = ["남자", "여자", "의사", "학생", "사람", "선생님"];
-const thingVowelNounsOrignalArray = ["탁자", "침대", "차", "컴퓨터", "나무", "소파", "도시", "의자"];
-const thingConsonantNounsOrignalArray = ["문", "책", "집", "것", "한국", "이름", "중국", "일본"];
-const thingBothNounsOrignalArray = [...thingVowelNounsOrignalArray, ...thingConsonantNounsOrignalArray];
+const peopleNounsOriginalArray = ["남자", "여자", "의사", "학생", "사람", "선생님"];
+const thingNounsOrignalArray = ["탁자", "침대", "차", "컴퓨터", "나무", "소파", "도시", "의자", "문", "책", "집", "것", "한국", "이름", "중국", "일본"];
 //----------------------------------------------------one off phases-------------------------------------------------
 const greetingWordsOrignalArray = ["안녕하세요", "감사합니다", "감사해요", "고마워", "고맙습니다", "고마워요", "잘 지내세요?", "제발", "네", "아니"];
 //------------------------------------------------------adj-------------------------------------------------------------
@@ -53,26 +46,22 @@ function shuffle(array) {
 }
 
 const iShuffledArray = shuffle(iOrignalArray);
-const allNounsShuffledArray = shuffle(allNounsOriginalArrays);
+const peopleNounsShuffledArray = shuffle(peopleNounsOriginalArray);
 const greetingWordsShuffledArray = shuffle(greetingWordsOrignalArray);
 const thisThatThatAdjShuffledArray = shuffle(thisThatThatAdjOriginalArray);
-const informal이다ShuffledArray = shuffle(informal이다OrignalArray);
-const formal이다ShuffledArray = shuffle(formal이다OrignalArray);
 const Consonant이다ShuffledArray = shuffle(Consonant이다OrignalArray);
 const Vowel이다ShuffledArray = shuffle(Vowel이다OrignalArray);
-const thingBothNounsShuffledArray = shuffle(thingBothNounsOrignalArray);
+const thingNounsShuffledArray = shuffle(thingNounsOrignalArray);
 
 
 function shuffleTheFunctions () {
   shuffle(iOrignalArray);
-  shuffle(allNounsOriginalArrays);
+  shuffle(peopleNounsOriginalArray);
   shuffle(greetingWordsOrignalArray);
   shuffle(thisThatThatAdjOriginalArray);
-  shuffle(informal이다OrignalArray);
-  shuffle(formal이다OrignalArray);
   shuffle(Consonant이다OrignalArray);
   shuffle(Vowel이다OrignalArray);
-  shuffle(thingBothNounsOrignalArray);
+  shuffle(thingNounsOrignalArray);
 }
 
 
@@ -83,36 +72,27 @@ const greetingPhrasesLineVariable = document.getElementById("greetingPhrasesLine
 const UltimateLineVariable = document.getElementById("UltimateLine");
 
 
+//---------------------------------------------------------------------Mix I am a _________ and print------------------------------------------
 function iAmBlankMixFunction () {
   const firstSpotiShuffledArray = iShuffledArray[0];
-  const firstSpotallNounsShuffledArray = allNounsShuffledArray[0];
+  const firstSpotpeopleNounsShuffledArray = peopleNounsShuffledArray[0];
+  const lastChar = firstSpotpeopleNounsShuffledArray[firstSpotpeopleNounsShuffledArray.length - 1];
   let 이다matched = "";
 
-  if (firstSpotiShuffledArray === iFormalOrignalArray && nounVowelOrignalArray.includes(firstSpotallNounsShuffledArray)) {
+
+  if (firstSpotiShuffledArray === iFormalOrignalArray && vowelEndingsOrignalArray.includes(lastChar)) {
     이다matched = 이다VowelFormal;
-  } else if (firstSpotiShuffledArray === iFormalOrignalArray && nounConsonantOrignalArray.includes(firstSpotallNounsShuffledArray)) {
+  } else if (firstSpotiShuffledArray === iFormalOrignalArray && consontantEndingsOrignalArray.includes(lastChar)) {
     이다matched = 이다ConsonantFormal;
-  } else if (firstSpotiShuffledArray === iInformalOrignalArray && nounConsonantOrignalArray.includes(firstSpotallNounsShuffledArray)) {
+  } else if (firstSpotiShuffledArray === iInformalOrignalArray && consontantEndingsOrignalArray.includes(lastChar)) {
     이다matched = 이다ConsonantInformal;
-  } else if (firstSpotiShuffledArray === iInformalOrignalArray && nounVowelOrignalArray.includes(firstSpotallNounsShuffledArray)) {
+  } else if (firstSpotiShuffledArray === iInformalOrignalArray && vowelEndingsOrignalArray.includes(lastChar)) {
      이다matched = 이다VowelInformal;
   } else {
      이다matched = "Something went wrong.";
   }
 
-  // if (firstSpotiShuffledArray === iFormalOrignalArray && nounVowelOrignalArray.includes(firstSpotallNounsShuffledArray)) {
-  //   이다matched = 이다VowelFormal;
-  // } else if (firstSpotiShuffledArray === iFormalOrignalArray && nounConsonantOrignalArray.includes(firstSpotallNounsShuffledArray)) {
-  //   이다matched = 이다ConsonantFormal;
-  // } else if (firstSpotiShuffledArray === iInformalOrignalArray && nounConsonantOrignalArray.includes(firstSpotallNounsShuffledArray)) {
-  //   이다matched = 이다ConsonantInformal;
-  // } else if (firstSpotiShuffledArray === iInformalOrignalArray && nounVowelOrignalArray.includes(firstSpotallNounsShuffledArray)) {
-  //    이다matched = 이다VowelInformal;
-  // } else {
-  //    이다matched = "Something went wrong.";
-  // }
-
-  const result = `${firstSpotiShuffledArray + subjectMarkerVowel} ${firstSpotallNounsShuffledArray}${이다matched}`;
+  const result = `${firstSpotiShuffledArray + subjectMarkerVowel} ${firstSpotpeopleNounsShuffledArray}${이다matched}`;
   return result;
  }
 
@@ -126,12 +106,13 @@ function iAmBlankPrintLine () {
   shuffleTheFunctions();
 }
 
+//-----------------------------------------------------------------------Mix that/this person is a ______ and print--------------------------------------
 function thisThatThatAdjMixFunction () {
   const firstSpotthisThatThatAdjShuffledArray = thisThatThatAdjShuffledArray[0];
-  const firstSpotallNounsShuffledArray = allNounsShuffledArray[0];
+  const firstSpotpeopleNounsShuffledArray = peopleNounsShuffledArray[0];
   const firstSpotConsonant이다ShuffledArray = Consonant이다ShuffledArray[0];
   const firstSpotVowel이다ShuffledArray = Vowel이다ShuffledArray[0];
-  const lastChar = firstSpotallNounsShuffledArray[firstSpotallNounsShuffledArray.length - 1];
+  const lastChar = firstSpotpeopleNounsShuffledArray[firstSpotpeopleNounsShuffledArray.length - 1];
   let 이다matched = "";
 
   if (consontantEndingsOrignalArray.includes(lastChar)) { 
@@ -142,7 +123,7 @@ function thisThatThatAdjMixFunction () {
      이다matched = "Something went wrong.";
   }
 
-  const result = `${firstSpotthisThatThatAdjShuffledArray} ${nounConsonantOrignalArray[1]}${subjectMarkerConsonant} ${firstSpotallNounsShuffledArray}${이다matched}`;
+  const result = `${firstSpotthisThatThatAdjShuffledArray} 사람${subjectMarkerConsonant} ${firstSpotpeopleNounsShuffledArray}${이다matched}`;
   return result;
 }
 
@@ -155,13 +136,13 @@ function thisThatThatAdjPrintLine () {
   shuffleTheFunctions();
 }
 
-
+//----------------------------------------------------------------------Mix That/That is a thing and print-----------------------------------------
 function thatThisIsABlankMixFunction () {
  const firstSpotthisThatThatAdjShuffledArray = thisThatThatAdjShuffledArray[0];
- const firstSpotthingBothNounsShuffledArray = thingBothNounsShuffledArray[0];
+ const firstSpotthingNounsShuffledArray = thingNounsShuffledArray[0];
  const firstSpotConsonant이다ShuffledArray = Consonant이다ShuffledArray[0];
  const firstSpotVowel이다ShuffledArray = Vowel이다ShuffledArray[0];
- const lastChar = firstSpotthingBothNounsShuffledArray[firstSpotthingBothNounsShuffledArray.length - 1];
+ const lastChar = firstSpotthingNounsShuffledArray[firstSpotthingNounsShuffledArray.length - 1];
  let 이다matched = "";
 
  if (consontantEndingsOrignalArray.includes(lastChar)) { 
@@ -172,7 +153,7 @@ function thatThisIsABlankMixFunction () {
     이다matched = "Something went wrong.";
  }
 
-  const result = `${firstSpotthisThatThatAdjShuffledArray + thingConsonantNounsOrignalArray[3] + subjectMarkerConsonant} ${firstSpotthingBothNounsShuffledArray}${이다matched}`;
+  const result = `${firstSpotthisThatThatAdjShuffledArray}것${subjectMarkerConsonant} ${firstSpotthingNounsShuffledArray}${이다matched}`;
   return result;
 }
 
@@ -185,6 +166,7 @@ function thatThisIsABlankPrintLine () {
   shuffleTheFunctions();
 }
 
+//------------------------------------------------------------------------Mix greeting and one off phrases and print-------------------------
 function greetingPhrasesMixFunction () {
   const firstSpotgreetingWordsShuffledArray = greetingWordsShuffledArray[0];
   return firstSpotgreetingWordsShuffledArray;
@@ -200,7 +182,7 @@ function greetingPhrasesPrintLine () {
   shuffleTheFunctions();
 }
 
-
+//------------------------------------------------==call all previous functions and mix them all together to make an ultimate button-------------
 function ultimateButtonPrintLine () {
   const firstspotgreetingWordsShuffledArray = greetingPhrasesMixFunction();
   const iAmBlankMixFunctionresult = iAmBlankMixFunction ();
@@ -216,6 +198,7 @@ function ultimateButtonPrintLine () {
   shuffleTheFunctions();
 }
 
+//--------------------------------------------------------------add event listeners to buttons-------------------------------------------
 const iAmBlankbutton1 = document.getElementById("iAmBlankbutton").addEventListener("click", iAmBlankPrintLine ); 
 const thatBlankIsABlankbutton1 = document.getElementById("thisThatThatAdjLinebutton").addEventListener("click", thisThatThatAdjPrintLine ); 
 const thatThisIsABlankbutton3 = document.getElementById("thatThisIsABlankbutton").addEventListener("click", thatThisIsABlankPrintLine ); 
@@ -223,8 +206,12 @@ const greetingPhrasesButton2 = document.getElementById("greetingPhrasesButton").
 const UltimateButton3 = document.getElementById("ultimateButton").addEventListener("click", ultimateButtonPrintLine ); 
 
 //to do list
-//write notes what each does
-//save this in commits in github
+//Should these be in objects, is there a better method?
+//are the variables names too long? does it make a difference in performance, spaces are frowned upon right?
+//Should I have 100% variable names or is a few strings in final results taking up space/peformance?
+//Should I shuffle all functions all the time or just shuffle a few.  It will make the functions longer, but I'm thinking for this case it's better to call just a few.
+
+
 
 
 
@@ -234,7 +221,9 @@ const UltimateButton3 = document.getElementById("ultimateButton").addEventListen
 //clearer labeling of variables
 //make functions smaller
 //see if I can use return functions
-//write the That this is a thing.
+//write the That this is a thing function.
+//save this in commits in github
+//write notes what each does
 
 
 //-------------------------------------------------------------------chap2--------------------------------------------------------------------------------
