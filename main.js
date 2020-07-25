@@ -47,21 +47,19 @@ function shuffle(array) {
 
 const iShuffledArray = shuffle(iOrignalArray);
 const peopleNounsShuffledArray = shuffle(peopleNounsOriginalArray);
-const greetingWordsShuffledArray = shuffle(greetingWordsOrignalArray);
 const thisThatThatAdjShuffledArray = shuffle(thisThatThatAdjOriginalArray);
 const Consonant이다ShuffledArray = shuffle(Consonant이다OrignalArray);
 const Vowel이다ShuffledArray = shuffle(Vowel이다OrignalArray);
 const thingNounsShuffledArray = shuffle(thingNounsOrignalArray);
+const greetingWordsShuffledArray = shuffle(greetingWordsOrignalArray);
 
 
-function shuffleTheFunctions () {
-  shuffle(iOrignalArray);
-  shuffle(peopleNounsOriginalArray);
-  shuffle(greetingWordsOrignalArray);
-  shuffle(thisThatThatAdjOriginalArray);
-  shuffle(Consonant이다OrignalArray);
-  shuffle(Vowel이다OrignalArray);
-  shuffle(thingNounsOrignalArray);
+
+function shuffleTheFunctions (arg) { 
+  arg.forEach (function (item) {
+    shuffle(item);
+  });
+  
 }
 
 
@@ -103,10 +101,10 @@ function iAmBlankPrintLine () {
   IamBlankLineVariable.innerHTML = "";
   IamBlankLineVariable.innerHTML = result;
   
-  shuffleTheFunctions();
+  shuffleTheFunctions([iOrignalArray, peopleNounsOriginalArray]);
 }
 
-//-----------------------------------------------------------------------Mix that/this person is a ______ and print--------------------------------------
+//-----------------------------------------------------------------------Mix this/that person is a ______ and print--------------------------------------
 function thisThatThatAdjMixFunction () {
   const firstSpotthisThatThatAdjShuffledArray = thisThatThatAdjShuffledArray[0];
   const firstSpotpeopleNounsShuffledArray = peopleNounsShuffledArray[0];
@@ -123,7 +121,7 @@ function thisThatThatAdjMixFunction () {
      이다matched = "Something went wrong.";
   }
 
-  const result = `${firstSpotthisThatThatAdjShuffledArray} 사람${subjectMarkerConsonant} ${firstSpotpeopleNounsShuffledArray}${이다matched}`;
+  const result = `${firstSpotthisThatThatAdjShuffledArray} 사람은 ${firstSpotpeopleNounsShuffledArray}${이다matched}`;
   return result;
 }
 
@@ -133,10 +131,11 @@ function thisThatThatAdjPrintLine () {
   thisThatThatAdjLineVariable.innerHTML = "";
   thisThatThatAdjLineVariable.innerHTML = result;
   
-  shuffleTheFunctions();
+  
+  shuffleTheFunctions([thisThatThatAdjOriginalArray, peopleNounsOriginalArray, Consonant이다OrignalArray, Vowel이다OrignalArray]);
 }
 
-//----------------------------------------------------------------------Mix That/That is a thing and print-----------------------------------------
+//----------------------------------------------------------------------Mix This/that is a ______ and print-----------------------------------------
 function thatThisIsABlankMixFunction () {
  const firstSpotthisThatThatAdjShuffledArray = thisThatThatAdjShuffledArray[0];
  const firstSpotthingNounsShuffledArray = thingNounsShuffledArray[0];
@@ -163,7 +162,7 @@ function thatThisIsABlankPrintLine () {
 
   thatThisIsABlankLineVariable.innerHTML = "";
   thatThisIsABlankLineVariable.innerHTML = result;
-  shuffleTheFunctions();
+  shuffleTheFunctions([thisThatThatAdjOriginalArray, thingNounsOrignalArray, Consonant이다OrignalArray, Vowel이다OrignalArray]);
 }
 
 //------------------------------------------------------------------------Mix greeting and one off phrases and print-------------------------
@@ -179,7 +178,8 @@ function greetingPhrasesPrintLine () {
   greetingPhrasesLineVariable.innerHTML = "";
   greetingPhrasesLineVariable.innerHTML = firstSpotgreetingWordsShuffledArray;
   
-  shuffleTheFunctions();
+  
+  shuffleTheFunctions([greetingWordsOrignalArray]);
 }
 
 //------------------------------------------------==call all previous functions and mix them all together to make an ultimate button-------------
@@ -195,7 +195,8 @@ function ultimateButtonPrintLine () {
   UltimateLineVariable.innerHTML = "";
   UltimateLineVariable.innerHTML = firstSpotarrayOfAllButtonsShuffled;
 
-  shuffleTheFunctions();
+  shuffleTheFunctions([iOrignalArray, thisThatThatAdjOriginalArray, peopleNounsOriginalArray, Consonant이다OrignalArray, Vowel이다OrignalArray, thingNounsOrignalArray, greetingWordsOrignalArray]);
+
 }
 
 //--------------------------------------------------------------add event listeners to buttons-------------------------------------------
@@ -215,6 +216,7 @@ const UltimateButton3 = document.getElementById("ultimateButton").addEventListen
 
 
 
+
 //completed
 //change to const and let
 //change to lowercase first letter for variables
@@ -224,6 +226,7 @@ const UltimateButton3 = document.getElementById("ultimateButton").addEventListen
 //write the That this is a thing function.
 //save this in commits in github
 //write notes what each does
+//check and make sure the order matches the website
 
 
 //-------------------------------------------------------------------chap2--------------------------------------------------------------------------------
