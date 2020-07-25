@@ -1,31 +1,31 @@
 //----------------------------------------------------universal variables---------------------------------------------------------------
 //---------------------------------------------------consonent/vowel endings-------------------------------------------------------
-const consontantEndingsOrignalArray = ["생", "람", "님", "문", "책", "집", "것", "국", "름", "본"];
-const vowelEndingsOrignalArray = ["자", "사", "대", "차", "터", "무", "파", "시"];
+const cnsOA = ["생", "람", "님", "문", "책", "집", "것", "국", "름", "본"];
+const vwlsOA = ["자", "사", "대", "차", "터", "무", "파", "시"];
 //---------------------------------------------------formal endings----------------------------------------------------
-const 이다ConsonantInformal = ["이야"];
-const 이다ConsonantFormal = ["이에요"];
-const 이다VowelInformal = ["야"];
-const 이다VowelFormal = ["예요"];
-const Consonant이다OrignalArray = [...이다ConsonantInformal, ...이다ConsonantFormal];
-const Vowel이다OrignalArray = [...이다VowelInformal, ...이다VowelFormal]; 
+const 이다CnIlOA = ["이야"];
+const 이다CnIHOA = ["이에요"];
+const 이다VwlIlOA = ["야"];
+const 이다VwlIHOA = ["예요"];
+const Cn이다OA = [...이다CnIlOA, ...이다CnIHOA];
+const Vwl이다OA = [...이다VwlIlOA, ...이다VwlIHOA]; 
 //----------------------------------------------------I---------------------------------------------------------
-const iInformalOrignalArray = "나";
-const iFormalOrignalArray = "저";
-const iOrignalArray = [...iFormalOrignalArray, ...iInformalOrignalArray];
+const iIOA = "나";
+const iFOA = "저";
+const iOA = [...iFOA, ...iIOA];
 //--------------------------------------------------subject Markers---------------------------------------------
-const subjectMarkerVowel = ["는"];
-const subjectMarkerConsonant = ["은"];
+const sbjctMrkrVo = ["는"];
+const sbjctMrkrCo = ["은"];
 
 
 //-------------------------------------------------------chap1-------------------------------------------------------------------------
 //---------------------------------------------------nouns------------------------------------------------------
-const peopleNounsOriginalArray = ["남자", "여자", "의사", "학생", "사람", "선생님"];
-const thingNounsOrignalArray = ["탁자", "침대", "차", "컴퓨터", "나무", "소파", "도시", "의자", "문", "책", "집", "것", "한국", "이름", "중국", "일본"];
+const pplNnsOA = ["남자", "여자", "의사", "학생", "사람", "선생님"];
+const thngNnsOA = ["탁자", "침대", "차", "컴퓨터", "나무", "소파", "도시", "의자", "문", "책", "집", "것", "한국", "이름", "중국", "일본"];
 //----------------------------------------------------one off phases-------------------------------------------------
-const greetingWordsOrignalArray = ["안녕하세요", "감사합니다", "감사해요", "고마워", "고맙습니다", "고마워요", "잘 지내세요?", "제발", "네", "아니"];
+const grtngWrdsOA = ["안녕하세요", "감사합니다", "감사해요", "고마워", "고맙습니다", "고마워요", "잘 지내세요?", "제발", "네", "아니"];
 //------------------------------------------------------adj-------------------------------------------------------------
-const thisThatThatAdjOriginalArray = ["이", "그", "저"];
+const thsThtThtAdjOA = ["이", "그", "저"];
 
 
 
@@ -45,13 +45,13 @@ function shuffle(array) {
   return array;
 }
 
-const iShuffledArray = shuffle(iOrignalArray);
-const peopleNounsShuffledArray = shuffle(peopleNounsOriginalArray);
-const thisThatThatAdjShuffledArray = shuffle(thisThatThatAdjOriginalArray);
-const Consonant이다ShuffledArray = shuffle(Consonant이다OrignalArray);
-const Vowel이다ShuffledArray = shuffle(Vowel이다OrignalArray);
-const thingNounsShuffledArray = shuffle(thingNounsOrignalArray);
-const greetingWordsShuffledArray = shuffle(greetingWordsOrignalArray);
+const iSA = shuffle(iOA);
+const pplNnsSA = shuffle(pplNnsOA);
+const thsThtThtAdjSA = shuffle(thsThtThtAdjOA);
+const Cn이다SA = shuffle(Cn이다OA);
+const Vwl이다SA = shuffle(Vwl이다OA);
+const thngNnsSA = shuffle(thngNnsOA);
+const grtngWrdsSA = shuffle(grtngWrdsOA);
 
 
 
@@ -63,139 +63,139 @@ function shuffleTheFunctions (arg) {
 }
 
 
-const IamBlankLineVariable = document.getElementById("iamBlankLine");
-const thisThatThatAdjLineVariable = document.getElementById("thisThatThatAdjLine");
-const thatThisIsABlankLineVariable = document.getElementById("thatThisIsABlankLine");
-const greetingPhrasesLineVariable = document.getElementById("greetingPhrasesLine");
-const UltimateLineVariable = document.getElementById("UltimateLine");
+const ImBlnkLnVrbl = document.getElementById("iamBlankLine");
+const thsThtThtAdjLnVrbl = document.getElementById("thisThatThatAdjLine");
+const thtThsIsABlnkLnVrbl = document.getElementById("thatThisIsABlankLine");
+const grtngPhrssLnVrbl = document.getElementById("greetingPhrasesLine");
+const UltmtLneVrbl = document.getElementById("UltimateLine");
 
 
 //---------------------------------------------------------------------Mix I am a _________ and print------------------------------------------
 function iAmBlankMixFunction () {
-  const firstSpotiShuffledArray = iShuffledArray[0];
-  const firstSpotpeopleNounsShuffledArray = peopleNounsShuffledArray[0];
-  const lastChar = firstSpotpeopleNounsShuffledArray[firstSpotpeopleNounsShuffledArray.length - 1];
-  let 이다matched = "";
+  const frstSptiSA = iSA[0];
+  const frstSptpplNnsSA = pplNnsSA[0];
+  const lstChr = frstSptpplNnsSA[frstSptpplNnsSA.length - 1];
+  let 이다mtchd = "";
 
 
-  if (firstSpotiShuffledArray === iFormalOrignalArray && vowelEndingsOrignalArray.includes(lastChar)) {
-    이다matched = 이다VowelFormal;
-  } else if (firstSpotiShuffledArray === iFormalOrignalArray && consontantEndingsOrignalArray.includes(lastChar)) {
-    이다matched = 이다ConsonantFormal;
-  } else if (firstSpotiShuffledArray === iInformalOrignalArray && consontantEndingsOrignalArray.includes(lastChar)) {
-    이다matched = 이다ConsonantInformal;
-  } else if (firstSpotiShuffledArray === iInformalOrignalArray && vowelEndingsOrignalArray.includes(lastChar)) {
-     이다matched = 이다VowelInformal;
+  if (frstSptiSA === iFOA && vwlsOA.includes(lstChr)) {
+    이다mtchd = 이다VwlIHOA;
+  } else if (frstSptiSA === iFOA && cnsOA.includes(lstChr)) {
+    이다mtchd = 이다CnIHOA;
+  } else if (frstSptiSA === iIOA && cnsOA.includes(lstChr)) {
+    이다mtchd = 이다CnIlOA;
+  } else if (frstSptiSA === iIOA && vwlsOA.includes(lstChr)) {
+     이다mtchd = 이다VwlIlOA;
   } else {
-     이다matched = "Something went wrong.";
+     이다mtchd = "Something went wrong.";
   }
 
-  const result = `${firstSpotiShuffledArray + subjectMarkerVowel} ${firstSpotpeopleNounsShuffledArray}${이다matched}`;
-  return result;
+  const rslt = `${frstSptiSA + sbjctMrkrVo} ${frstSptpplNnsSA}${이다mtchd}`;
+  return rslt;
  }
 
 
 function iAmBlankPrintLine () {
-  const result = iAmBlankMixFunction();
+  const rslt = iAmBlankMixFunction();
 
-  IamBlankLineVariable.innerHTML = "";
-  IamBlankLineVariable.innerHTML = result;
+  ImBlnkLnVrbl.innerHTML = "";
+  ImBlnkLnVrbl.innerHTML = rslt;
   
-  shuffleTheFunctions([iOrignalArray, peopleNounsOriginalArray]);
+  shuffleTheFunctions([iOA, pplNnsOA]);
 }
 
 //-----------------------------------------------------------------------Mix this/that person is a ______ and print--------------------------------------
 function thisThatThatAdjMixFunction () {
-  const firstSpotthisThatThatAdjShuffledArray = thisThatThatAdjShuffledArray[0];
-  const firstSpotpeopleNounsShuffledArray = peopleNounsShuffledArray[0];
-  const firstSpotConsonant이다ShuffledArray = Consonant이다ShuffledArray[0];
-  const firstSpotVowel이다ShuffledArray = Vowel이다ShuffledArray[0];
-  const lastChar = firstSpotpeopleNounsShuffledArray[firstSpotpeopleNounsShuffledArray.length - 1];
-  let 이다matched = "";
+  const frstSptthsThtThtAdjSA = thsThtThtAdjSA[0];
+  const frstSptpplNnsSA = pplNnsSA[0];
+  const frstSptCn이다SA = Cn이다SA[0];
+  const frstSptVwl이다SA = Vwl이다SA[0];
+  const lstChr = frstSptpplNnsSA[frstSptpplNnsSA.length - 1];
+  let 이다mtchd = "";
 
-  if (consontantEndingsOrignalArray.includes(lastChar)) { 
-    이다matched = firstSpotConsonant이다ShuffledArray;
-  } else if (vowelEndingsOrignalArray.includes(lastChar)) {
-    이다matched = firstSpotVowel이다ShuffledArray;
+  if (cnsOA.includes(lstChr)) { 
+    이다mtchd = frstSptCn이다SA;
+  } else if (vwlsOA.includes(lstChr)) {
+    이다mtchd = frstSptVwl이다SA;
   }  else {
-     이다matched = "Something went wrong.";
+     이다mtchd = "Something went wrong.";
   }
 
-  const result = `${firstSpotthisThatThatAdjShuffledArray} 사람은 ${firstSpotpeopleNounsShuffledArray}${이다matched}`;
-  return result;
+  const rslt = `${frstSptthsThtThtAdjSA} 사람은 ${frstSptpplNnsSA}${이다mtchd}`;
+  return rslt;
 }
 
 function thisThatThatAdjPrintLine () {
-  const result = thisThatThatAdjMixFunction();
+  const rslt = thisThatThatAdjMixFunction();
 
-  thisThatThatAdjLineVariable.innerHTML = "";
-  thisThatThatAdjLineVariable.innerHTML = result;
+  thsThtThtAdjLnVrbl.innerHTML = "";
+  thsThtThtAdjLnVrbl.innerHTML = rslt;
   
   
-  shuffleTheFunctions([thisThatThatAdjOriginalArray, peopleNounsOriginalArray, Consonant이다OrignalArray, Vowel이다OrignalArray]);
+  shuffleTheFunctions([thsThtThtAdjOA, pplNnsOA, Cn이다OA, Vwl이다OA]);
 }
 
 //----------------------------------------------------------------------Mix This/that is a ______ and print-----------------------------------------
 function thatThisIsABlankMixFunction () {
- const firstSpotthisThatThatAdjShuffledArray = thisThatThatAdjShuffledArray[0];
- const firstSpotthingNounsShuffledArray = thingNounsShuffledArray[0];
- const firstSpotConsonant이다ShuffledArray = Consonant이다ShuffledArray[0];
- const firstSpotVowel이다ShuffledArray = Vowel이다ShuffledArray[0];
- const lastChar = firstSpotthingNounsShuffledArray[firstSpotthingNounsShuffledArray.length - 1];
- let 이다matched = "";
+ const frstSptthsThtThtAdjSA = thsThtThtAdjSA[0];
+ const frstSptthngNnsSA = thngNnsSA[0];
+ const frstSptCn이다SA = Cn이다SA[0];
+ const frstSptVwl이다SA = Vwl이다SA[0];
+ const lstChr = frstSptthngNnsSA[frstSptthngNnsSA.length - 1];
+ let 이다mtchd = "";
 
- if (consontantEndingsOrignalArray.includes(lastChar)) { 
-   이다matched = firstSpotConsonant이다ShuffledArray;
- } else if (vowelEndingsOrignalArray.includes(lastChar)) {
-   이다matched = firstSpotVowel이다ShuffledArray;
+ if (cnsOA.includes(lstChr)) { 
+   이다mtchd = frstSptCn이다SA;
+ } else if (vwlsOA.includes(lstChr)) {
+   이다mtchd = frstSptVwl이다SA;
  }  else {
-    이다matched = "Something went wrong.";
+    이다mtchd = "Something went wrong.";
  }
 
-  const result = `${firstSpotthisThatThatAdjShuffledArray}것${subjectMarkerConsonant} ${firstSpotthingNounsShuffledArray}${이다matched}`;
-  return result;
+  const rslt = `${frstSptthsThtThtAdjSA}것${sbjctMrkrCo} ${frstSptthngNnsSA}${이다mtchd}`;
+  return rslt;
 }
 
 
 function thatThisIsABlankPrintLine () {
-  const result = thatThisIsABlankMixFunction();
+  const rslt = thatThisIsABlankMixFunction();
 
-  thatThisIsABlankLineVariable.innerHTML = "";
-  thatThisIsABlankLineVariable.innerHTML = result;
-  shuffleTheFunctions([thisThatThatAdjOriginalArray, thingNounsOrignalArray, Consonant이다OrignalArray, Vowel이다OrignalArray]);
+  thtThsIsABlnkLnVrbl.innerHTML = "";
+  thtThsIsABlnkLnVrbl.innerHTML = rslt;
+  shuffleTheFunctions([thsThtThtAdjOA, thngNnsOA, Cn이다OA, Vwl이다OA]);
 }
 
 //------------------------------------------------------------------------Mix greeting and one off phrases and print-------------------------
 function greetingPhrasesMixFunction () {
-  const firstSpotgreetingWordsShuffledArray = greetingWordsShuffledArray[0];
-  return firstSpotgreetingWordsShuffledArray;
+  const frstSptgrtngWrdsSA = grtngWrdsSA[0];
+  return frstSptgrtngWrdsSA;
 }
 
 
 function greetingPhrasesPrintLine () {
   
-  const firstSpotgreetingWordsShuffledArray = greetingPhrasesMixFunction();
-  greetingPhrasesLineVariable.innerHTML = "";
-  greetingPhrasesLineVariable.innerHTML = firstSpotgreetingWordsShuffledArray;
+  const frstSptgrtngWrdsSA = greetingPhrasesMixFunction();
+  grtngPhrssLnVrbl.innerHTML = "";
+  grtngPhrssLnVrbl.innerHTML = frstSptgrtngWrdsSA;
   
   
-  shuffleTheFunctions([greetingWordsOrignalArray]);
+  shuffleTheFunctions([grtngWrdsOA]);
 }
 
 //------------------------------------------------==call all previous functions and mix them all together to make an ultimate button-------------
 function ultimateButtonPrintLine () {
-  const firstspotgreetingWordsShuffledArray = greetingPhrasesMixFunction();
-  const iAmBlankMixFunctionresult = iAmBlankMixFunction ();
-  const thisThatThatAdjMixFunctionresult = thisThatThatAdjMixFunction();
-  const thatThisIsABlankMixFunctionresult = thatThisIsABlankMixFunction();
+  const frstsptgrtngWrdsSA = greetingPhrasesMixFunction();
+  const iAmBlnkMxFnctnrslt = iAmBlankMixFunction ();
+  const thsThtThtAdjMxFnctnrslt = thisThatThatAdjMixFunction();
+  const thtThsIsABlnkMxFnctnrslt = thatThisIsABlankMixFunction();
 
-  const originalArrayOfAllButtons = [[firstspotgreetingWordsShuffledArray], [iAmBlankMixFunctionresult], [thisThatThatAdjMixFunctionresult], [thatThisIsABlankMixFunctionresult]];
-  const arrayOfAllButtonsShuffled = shuffle(originalArrayOfAllButtons);
-  const firstSpotarrayOfAllButtonsShuffled =arrayOfAllButtonsShuffled[0]
-  UltimateLineVariable.innerHTML = "";
-  UltimateLineVariable.innerHTML = firstSpotarrayOfAllButtonsShuffled;
+  const orgnlArryOfAllBttns = [[frstsptgrtngWrdsSA], [iAmBlnkMxFnctnrslt], [thsThtThtAdjMxFnctnrslt], [thtThsIsABlnkMxFnctnrslt]];
+  const arryOfAllBttnsShffld = shuffle(orgnlArryOfAllBttns);
+  const frstSptarryOfAllBttnsShffld =arryOfAllBttnsShffld[0]
+  UltmtLneVrbl.innerHTML = "";
+  UltmtLneVrbl.innerHTML = frstSptarryOfAllBttnsShffld;
 
-  shuffleTheFunctions([iOrignalArray, thisThatThatAdjOriginalArray, peopleNounsOriginalArray, Consonant이다OrignalArray, Vowel이다OrignalArray, thingNounsOrignalArray, greetingWordsOrignalArray]);
+  shuffleTheFunctions([iOA, thsThtThtAdjOA, pplNnsOA, Cn이다OA, Vwl이다OA, thngNnsOA, grtngWrdsOA]);
 
 }
 
